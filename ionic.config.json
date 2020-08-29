@@ -1,0 +1,7 @@
+{
+  "name": "Depar",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

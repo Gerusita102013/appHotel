@@ -1,0 +1,30 @@
+<ion-content>
+    <div class="container">
+        <div class="header">
+            <div class="title">
+                <img src="assets/icon/favicon.png">
+            </div>
+            <h3 style=" font: oblique bold 180% cursive; color:aliceblue;">Iniciar Sesión</h3>
+
+
+            <div class="body">
+                <ion-list>
+                    <ion-item>
+                        <ion-icon slot="start" name="at"></ion-icon>
+                        <ion-input placeholder="Correo" [(ngModel)]="mail"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-icon slot="start" name="key-sharp"></ion-icon>
+                        <ion-input [(ngModel)]="pass" placeholder="Password" type="password"></ion-input>
+                    </ion-item>
+                </ion-list>
+                <P>
+                    <ion-button fill="outline" color="warning" (click)="logeo()"> INICIAR </ion-button>
+                </P>
+                <p>¿No tienes una cuenta? <a routerLink="/user" style="color: rgb(208, 255, 0);">Crea una.</a></p>
+
+            </div>
+        </div>
+    </div>
+</ion-content>

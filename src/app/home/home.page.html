@@ -1,0 +1,21 @@
+<ion-header>
+</ion-header>
+
+
+
+
+
+<ion-content>
+    <ion-button color="tertiary" (click)="obtenerDesocupados()">Tertiary</ion-button>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size-xs="4" size-lg="3" size-md="3" *ngFor="let c of habitaciones">
+                <ion-card>
+                    <img src="http://127.0.0.1:8000/Fotos/{{c.tipodehabitacion.imagen}}" alt="">
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

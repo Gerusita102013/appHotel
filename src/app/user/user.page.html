@@ -1,0 +1,39 @@
+<ion-content>
+    <ion-back-button defaultHref="login"></ion-back-button>
+    <div class="container">
+        <div class="header">
+            <div class="title">
+                <img src="assets/icon/favicon.png">
+            </div>
+            <h3 style=" font: oblique bold 180% cursive; color:aliceblue;">Registrarse</h3>
+
+            <div class="body">
+                <ion-list>
+                    <ion-item>
+
+                        <ion-icon slot="start" name="person-sharp"></ion-icon>
+                        <ion-input [(ngModel)]="user.usuario" placeholder="Nombre"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-icon slot="start" name="person-sharp"></ion-icon>
+                        <ion-input [(ngModel)]="user.apellido" placeholder="Apellido"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-icon slot="start" name="at"></ion-icon>
+                        <ion-input [(ngModel)]="user.corre" placeholder="Correo"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-icon slot="start" name="key-sharp"></ion-icon>
+                        <ion-input [(ngModel)]="user.password" placeholder="Contraseña" type="password"></ion-input>
+                    </ion-item>
+                </ion-list>
+                <P>
+                    <ion-button (click)="addUsuario()" fill="outline" color="warning"> ENVIAR </ion-button>
+                </P>
+            </div>
+        </div>
+    </div>
+</ion-content>
