@@ -1,21 +1,78 @@
 <ion-header>
+    <ion-toolbar animated color="tertiary">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12">
+                    <div class="vertical-center">
+                        <img src="assets/img/llogo.png">
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <div class="vertical-center">
+            <img src="assets/img/usuu.png" height="30px" width="30px">
+            <label style=" font: oblique bold 150% cursive;">&nbsp;{{name}}</label>
+        </div>
+    </ion-toolbar>
 </ion-header>
 
+<ion-content [fullscreen]="true">
+    <h1 style=" font: oblique bold 150% cursive;">Desocupadas</h1>
+    <ion-slides [options]="options">
+        <ion-slide *ngFor="let c of habitaciones">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="12" class="poster-col">
+                        <img class="poster" src="http://127.0.0.1:8000/Fotos/{{c.tipodehabitacion.imagen}}" [routerLink]="['../../detail/', c.id, name]">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-slide>
+    </ion-slides>
 
-
-
-
-<ion-content>
-    <ion-button color="tertiary" (click)="obtenerDesocupados()">Tertiary</ion-button>
-
-    <ion-grid>
-        <ion-row>
-            <ion-col size-xs="4" size-lg="3" size-md="3" *ngFor="let c of habitaciones">
-                <ion-card>
-                    <img src="http://127.0.0.1:8000/Fotos/{{c.tipodehabitacion.imagen}}" alt="">
-                </ion-card>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-
+    <h1 style=" font: oblique bold 150% cursive;">Ocupadas</h1>
+    <ion-slides [options]="options">
+        <ion-slide *ngFor="let c of habitaciones2">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="12" class="poster-col">
+                        <img class="poster" src="http://127.0.0.1:8000/Fotos/{{c.tipodehabitacion.imagen}}" [routerLink]="['../../detail/', c.id, name]">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-slide>
+    </ion-slides>
 </ion-content>
+
+
+<ion-item animated color="tertiary">
+    <ion-grid>
+        <div class="vertical-center">
+            <ion-row>
+                <ion-col size="12">
+                    <div>
+                        <ion-footer>
+                            <ion-segment scrollable value="home" style=color:black>
+                                <ion-segment-button value="home" [routerLink]="['/home/', name]" style=color:black>
+                                    <ion-icon name="home-sharp"></ion-icon>
+                                    <ion-label>INICIO</ion-label>
+                                </ion-segment-button>
+
+                                <ion-segment-button value="home" [routerLink]="['/buscar-departamentos/', name]" style=color:black>
+                                    <ion-icon name="search-sharp"></ion-icon>
+                                    <ion-label>BUSCAR</ion-label>
+                                </ion-segment-button>
+
+                                <ion-segment-button value="home" style=color:black (click)="borrar()">
+                                    <ion-icon name="exit-sharp"></ion-icon>
+                                    <ion-label>SALIR</ion-label>
+                                </ion-segment-button>
+                            </ion-segment>
+                        </ion-footer>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+</ion-item>

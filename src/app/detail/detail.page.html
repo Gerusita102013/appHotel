@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar animated color="primary">
+        <ion-buttons [routerLink]="['../buscar-departamentos/', name]" slot="start">
+            <ion-back-button defaultHref="['../buscar-departamentos/', name]"></ion-back-button>
+        </ion-buttons>
+        <ion-title style=" font: oblique bold 150% cursive; color: black;">Detalle</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngFor="let item of detailMovies">
+        <ion-card-header>
+
+            <ion-img height="400" width="100%" src="http://127.0.0.1:8000/Fotos/{{item.tipodehabitacion.imagen}}">
+            </ion-img>
+
+            <label *ngFor="let item of detailMovies">{{item.estado}}</label>
+
+        </ion-card-header>
+    </ion-card>
+</ion-content>

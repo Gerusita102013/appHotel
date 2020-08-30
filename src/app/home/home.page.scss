@@ -31,3 +31,59 @@
     --background: linear-gradient(to right, #FFFFFF, #FFEFBA);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+ion-segment {
+    margin: 0 10px;
+}
+
+.segment-button-checked {
+    color: #333;
+}
+
+ion-badge {
+    padding: 8px 0;
+    border-radius: 18px;
+    color: #8c8c8c;
+    border: 1px solid #8c8c8c;
+    width: 100%;
+    text-align: center;
+}
+
+.poster-col {
+    img {
+        border-radius: 40px;
+    }
+}
+
+.rate {
+    font-size: 14px;
+    padding-top: 4px;
+    ion-icon {
+        color: gold;
+    }
+}
+
+h5 {
+    margin-top: 4px;
+}
+
+.swiper-slide-prev {
+    opacity: .5;
+    transform: rotate(-8deg);
+}
+
+.swiper-slide-next {
+    opacity: .5;
+    transform: rotate(8deg);
+}
+
+.swiper-slide {
+    transition: .4s all;
+}

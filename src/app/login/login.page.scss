@@ -1,8 +1,8 @@
 ion-content {
     --offset-top: 0px;
     --offset-bottom: 0px;
-    --background: #000000;
-    --color: #FFF;
+    --background: #F3F8F8;
+    --color: #000000;
     .container {
         display: flex;
         flex-direction: column;
@@ -22,7 +22,7 @@ ion-content {
                 }
             }
             h3 {
-                color: #FFF;
+                color: #000000;
             }
         }
         .body {
@@ -35,14 +35,14 @@ ion-content {
                     --border-color: transparent!important;
                     --highlight-height: 0;
                     --background: none;
-                    background: rgba(255, 255, 255, 0.1);
+                    background: rgba(0, 0, 0, 0.1);
                     border-radius: 4px;
                     margin-bottom: 10px;
                     ion-icon {
-                        color: #e9ec0d;
+                        color: #3B36DE;
                     }
                     ion-input {
-                        --color: #FFF;
+                        --color: ##000000;
                     }
                 }
             }

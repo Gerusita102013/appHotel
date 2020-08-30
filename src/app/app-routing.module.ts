@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -22,12 +22,8 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'buscar-departamentos/:name',
+    path: 'buscar-departamentos/:nick',
     loadChildren: () => import('./buscar-departamentos/buscar-departamentos.module').then( m => m.BuscarDepartamentosPageModule)
-  },
-  {
-    path: 'detalles',
-    loadChildren: () => import('./detalles/detalles.module').then( m => m.DetallesPageModule)
   },
   {
     path: 'mapa',
@@ -36,6 +32,10 @@ const routes: Routes = [
   {
     path: 'reservacion',
     loadChildren: () => import('./reservacion/reservacion.module').then( m => m.ReservacionPageModule)
+  },
+  {
+    path: 'detail/:id/:nick',
+    loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
   },
 ];
 
