@@ -1,39 +1,41 @@
-<ion-content>
-    <ion-back-button defaultHref="login"></ion-back-button>
-    <div class="container">
-        <div class="header">
-            <div class="title">
-                <img src="assets/img/userr.png">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <div class="back-circle"></div>
+        <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+
+    <svg class="back-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#8295A3"  d="M68.6,-33.5C81.6,-17.2,79.6,13.8,65.7,37.6C51.8,61.3,25.9,77.8,2.1,76.6C-21.7,75.4,-43.5,56.5,-54.2,34.6C-65,12.7,-64.8,-12.3,-53.9,-27.4C-43,-42.4,-21.5,-47.6,3.2,-49.4C27.9,-51.2,55.7,-49.7,68.6,-33.5Z" transform="translate(100 100)" />
+</svg>
+
+    <div class="ion-padding">
+        <form class="ion-padding">
+
+            <div class="wrap-input">
+                <input [(ngModel)]="user.usuario" class="input" type="text" name="user-name" placeholder="Nombre">
             </div>
-            <h3 style=" font: oblique bold 180% cursive; color:rgb(23, 23, 212);;">Registrarse</h3>
 
-            <div class="body">
-                <ion-list>
-                    <ion-item>
-
-                        <ion-icon slot="start" name="person-sharp"></ion-icon>
-                        <ion-input [(ngModel)]="user.usuario" placeholder="Nombre"></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-icon slot="start" name="person-sharp"></ion-icon>
-                        <ion-input [(ngModel)]="user.apellido" placeholder="Apellido"></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-icon slot="start" name="at"></ion-icon>
-                        <ion-input [(ngModel)]="user.corre" placeholder="Correo"></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-icon slot="start" name="key-sharp"></ion-icon>
-                        <ion-input [(ngModel)]="user.password" placeholder="Contraseña" type="password"></ion-input>
-                    </ion-item>
-                </ion-list>
-                <P>
-                    <ion-button (click)="addUsuario()" color="tertiary"> ENVIAR </ion-button>
-                </P>
+            <div class="wrap-input">
+                <input [(ngModel)]="user.apellido" class="input" type="text" name="user-name" placeholder="Apellido">
             </div>
-        </div>
+
+            <div class="wrap-input">
+                <input [(ngModel)]="user.corre" class="input" type="text" name="user-name" placeholder="Correo">
+            </div>
+
+            <div class="wrap-input">
+                <input [(ngModel)]="user.password" class="input" type="password" name="password" placeholder="Password">
+            </div>
+
+            <div class="container-form-btn">
+                <button class="form-btn custom-font" (click)="addUsuario() ">Registrarse</button>
+            </div>
+        </form>
     </div>
 </ion-content>

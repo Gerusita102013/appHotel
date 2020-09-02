@@ -1,7 +1,7 @@
 <ion-header>
-    <ion-toolbar animated color="primary">
+    <ion-toolbar animated color="warning">
         <ion-buttons [routerLink]="['../buscar-departamentos/', name]" slot="start">
-            <ion-back-button defaultHref="['../buscar-departamentos/', name]"></ion-back-button>
+            <ion-back-button defaultHref="['../buscar-departamentos/', name]" color="dark"></ion-back-button>
         </ion-buttons>
         <ion-title style=" font: oblique bold 150% cursive; color: black;">Detalle</ion-title>
     </ion-toolbar>
@@ -14,7 +14,73 @@
             <ion-img height="400" width="100%" src="http://127.0.0.1:8000/Fotos/{{item.tipodehabitacion.imagen}}">
             </ion-img>
 
-            <label *ngFor="let item of detailMovies">{{item.estado}}</label>
+            <p>
+                <ion-card-subtitle class="vertical-center">
+                    <ion-card-title style="color:yellow; font: oblique bold 150% cursive;">Habitación: &nbsp;{{item.tipodehabitacion.nombrehabitacion}}&nbsp;${{item.tipodehabitacion.precio}}
+                        <ion-icon name="star-outline" color="warning"></ion-icon>
+                    </ion-card-title>
+                </ion-card-subtitle>
+            </p>
+
+            <p>
+                <ion-card-subtitle class="vertical-center">
+                    <ion-card-title style="color:rgb(255, 255, 255); font: oblique bold 150% cursive;">Estado:&nbsp;{{item.estado }}
+                    </ion-card-title>
+                </ion-card-subtitle>
+            </p>
+
+            <p>
+                <ion-chip color="warning" *ngFor="let item of detailMovies">
+                    Camas disponibles:&nbsp;{{item.tipodehabitacion.numerocamas }}
+                </ion-chip>
+
+                <ion-chip color="warning" *ngFor="let item of detailMovies">
+                    Aire:&nbsp;{{item.tipodehabitacion.aire }}
+                </ion-chip>
+
+                <ion-chip color="warning" *ngFor="let item of detailMovies">
+                    Habitación n°:&nbsp;{{item.numero }}
+                </ion-chip>
+
+                <ion-chip color="warning" *ngFor="let item of detailMovies">
+                    Número del piso: &nbsp;{{item.piso }}
+                </ion-chip>
+            </p>
+
+
+
+            <ion-grid>
+                <ion-row color="light" justify-content-center>
+                    <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                        <div text-center>
+                            <h3>RESERVACIÓN</h3>
+                        </div>
+                        <div padding>
+
+                            <ion-label>
+
+                                <ion-datetime placeholder="23-07-2020" display-format="YYYY-MM-DD" [(ngModel)]="fecha_entrada"></ion-datetime>
+                            </ion-label>
+
+                            <ion-label>
+
+                                <ion-datetime placeholder="23-07-2020" display-format="YYYY-MM-DD" [(ngModel)]="fecha_salida"></ion-datetime>
+                            </ion-label>
+
+
+                        </div>
+                        <div>
+                            <br>
+                        </div>
+                        <div padding>
+                            <ion-button expand="block" (click)="Reservar()">RESERVAR</ion-button>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+
+
 
         </ion-card-header>
     </ion-card>

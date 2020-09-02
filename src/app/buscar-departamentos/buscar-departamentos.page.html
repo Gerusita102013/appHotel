@@ -1,8 +1,7 @@
 <ion-header class="oscuro">
     <ion-toolbar class="oscuro">
         <p>
-            <ion-title class="ion-text-center" style=" font: oblique bold 150% cursive; color:aliceblue;">Buscar Pelicula</ion-title>
-
+            <ion-title class="ion-text-center" style=" font: oblique bold 150% cursive; color:aliceblue;">Buscar Departamento</ion-title>
             <ion-buttons slot="start">
                 <ion-back-button [defaultHref]="['home/', name]" style="color: aliceblue;"></ion-back-button>
                 <ion-searchbar [(ngModel)]="peli" animated color="warning" (keyup.enter)="getDepartamentos()"></ion-searchbar>
@@ -11,6 +10,27 @@
     </ion-toolbar>
 </ion-header>
 
+
 <ion-content class="oscuro">
+    <ion-list class="oscuro">
+
+        <ion-item class="oscuro" [routerLink]="['../../detail/', c.id, name]" *ngFor="let c of listMovies">
+            <ion-label animated color="light">
+                {{c.nombrehabitacion}}
+            </ion-label>
+            <ion-chip color="warning">$ &nbsp;{{c.precio}}</ion-chip>
+
+            <ion-thumbnail slot="start" *ngIf="c.imagen">
+                <img src="http://127.0.0.1:8000/Fotos/{{c.imagen}}">
+            </ion-thumbnail>
+        </ion-item>
+
+        <div *ngIf="listMovies.length > 0 else noexiste"></div>
+        <ng-template #noexiste>
+            <ion-label class="vertical-center">
+                <h2 style=" color:aliceblue; ">---NO HAY DEPARTAMENTOS---</h2>
+            </ion-label>
+        </ng-template>
+    </ion-list>
 
 </ion-content>

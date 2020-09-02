@@ -10,7 +10,6 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./buscar-departamentos.page.scss'],
 })
 export class BuscarDepartamentosPage implements OnInit {
-
   peli:string;
   numberPage:number=1;
   name:string;
@@ -22,9 +21,10 @@ export class BuscarDepartamentosPage implements OnInit {
               private rute:ActivatedRoute) { }
   listMovies:any=[];
   nombreBusqueda:string;
+  habitaciones: any [];
   
   ngOnInit() {
-    this.name= this.rute.snapshot.paramMap.get('name');
+    this.name= this.rute.snapshot.paramMap.get('nick');
   }
 
   async mensaje() {
@@ -37,38 +37,17 @@ export class BuscarDepartamentosPage implements OnInit {
     toast.present();
   }
 
-  getDepartamentos(event){
-    if(this.peli!=this.nombreBusqueda){
-      this.listMovies.length=0;
-      this.nombreBusqueda=this.peli;
-      this.numberPage=1;
-    }
-
+  getDepartamentos(){
     
-    this.departamentoService.getDepartamentos(this.peli).then(correcto=>{
-      console.log("movies", correcto["results"]);
-      for(let i=0; i<correcto["results"].length; i++){
-        this.listMovies.push(correcto["results"][i]);
+      this.listMovies.length=0;
+    
+    debugger
+    this.departamentoService.buscarDepartamentos(this.peli).then(correcto=>{
+      for(let i=0; i<correcto["resultado"].length; i++){
+        this.listMovies.push(correcto["resultado"][i]);
         this.mensaje();
-
       }
-      
-      if(this.listMovies.length == 200){
-        event.target.disabled = true;
-        
-      }
-      event.target.complete();
-      this.numberPage++;
      }).catch(error =>{
      })
-  }
-
-  borrar(){
-    localStorage.removeItem('sesionlogin');
-    this.router2.navigate(['/login']);
-  }
-
-  toggleInfiniteScroll() {
-    this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
   }
 }

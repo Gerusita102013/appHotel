@@ -37,6 +37,10 @@ const routes: Routes = [
     path: 'detail/:id/:nick',
     loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
   },
+  {
+    path: 'inicio/:nick',
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+  },
 ];
 
 @NgModule({

@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
     if (this.mail==null || this.pass==null) {
       this.mail=null;
       this.pass=null; 
-      this.mensaje('USUARIO Y CONTRASEÑA VACIOS');
+      this.mensaje('Usuario y contraseña vacios');
     }
     
     this.login.logeo(this.mail,this.pass).then(data =>{
@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
       this.mail=null;
       this.pass=null;
         localStorage.setItem('sesionlogin','true')
-        this.ruta.navigate(['/home/'+this.user[0].name])
+        this.ruta.navigate(['/inicio/'+this.user[0].name])
       
     })
     .catch(error =>{

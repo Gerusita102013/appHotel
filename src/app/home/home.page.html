@@ -1,72 +1,94 @@
-<ion-header>
-    <ion-toolbar animated color="tertiary">
-        <ion-grid>
-            <ion-row>
-                <ion-col size="12">
-                    <div class="vertical-center">
-                        <img src="assets/img/llogo.png">
-                    </div>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-
-        <div class="vertical-center">
-            <img src="assets/img/usuu.png" height="30px" width="30px">
-            <label style=" font: oblique bold 150% cursive;">&nbsp;{{name}}</label>
-        </div>
+<ion-header class="oscuro">
+    <ion-toolbar class="oscuro">
+        <ion-button slot="start" color="dark">
+            <ion-menu-button menu="menu"></ion-menu-button>
+        </ion-button>
     </ion-toolbar>
+
+    <div class="titles">
+        <h4>La choza Lodge
+            <ion-icon name="home-sharp"></ion-icon>
+        </h4>
+        <h6>Share Your Love
+            <ion-icon name="bed-sharp"></ion-icon>
+        </h6>
+    </div>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-    <h1 style=" font: oblique bold 150% cursive;">Desocupadas</h1>
-    <ion-slides [options]="options">
-        <ion-slide *ngFor="let c of habitaciones">
-            <ion-grid>
-                <ion-row>
-                    <ion-col size="12" class="poster-col">
-                        <img class="poster" src="http://127.0.0.1:8000/Fotos/{{c.tipodehabitacion.imagen}}" [routerLink]="['../../detail/', c.id, name]">
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </ion-slide>
-    </ion-slides>
+<ion-content fullscreen="true">
+    <div class="container" animated color="warning">
 
-    <h1 style=" font: oblique bold 150% cursive;">Ocupadas</h1>
-    <ion-slides [options]="options">
-        <ion-slide *ngFor="let c of habitaciones2">
-            <ion-grid>
-                <ion-row>
-                    <ion-col size="12" class="poster-col">
-                        <img class="poster" src="http://127.0.0.1:8000/Fotos/{{c.tipodehabitacion.imagen}}" [routerLink]="['../../detail/', c.id, name]">
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </ion-slide>
-    </ion-slides>
+        <h1 style=" font: oblique bold 150% cursive;color:aliceblue;" color="primary"> Disponibles</h1>
+        <ion-slides [options]="option">
+
+            <ion-slide class="ion-text-left" *ngFor="let c of habitaciones">
+                <ion-card class="ion-padding" color="warning">
+                    <ion-card-content>
+                        <div class="cover">
+                            <img class="poster" src="http://127.0.0.1:8000/Fotos/{{c.tipodehabitacion.imagen}}">
+                        </div>
+                        <ion-row>
+                            <ion-col size="8">
+                                <ion-card-title>{{c.tipodehabitacion.nombrehabitacion}}</ion-card-title>
+                                <ion-card-subtitle>$ {{c.tipodehabitacion.precio}}</ion-card-subtitle>
+                            </ion-col>
+                            <ion-col size="4" class="ion-text-left">
+                                <ion-button color="dark" mode="ios" [routerLink]="['../../detail/', c.id, name]">
+                                    <ion-icon slot="icon-only" name="add"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-slide>
+        </ion-slides>
+    </div>
+
+    <h1 style=" font: oblique bold 150% cursive;color:aliceblue;">Ocupadas</h1>
+    <div class="wrapper">
+        <div *ngFor="let c of habitaciones2" style="padding: 5px;">
+            <img src="http://127.0.0.1:8000/Fotos/{{c.tipodehabitacion.imagen}}" [routerLink]="['../../detail/', c.id, name]" width="100%" height="100%">
+        </div>
+    </div>
 </ion-content>
 
 
-<ion-item animated color="tertiary">
+<!-- <div>
+    <ion-tabs>
+        <ion-tab-bar slot="bottom" color="dark">
+            <ion-tab-button tab="tab1">
+                <ion-icon name="home" [routerLink]="['/home/', name]" style=color:yellow></ion-icon>
+            </ion-tab-button>
+            <ion-tab-button tab="tab2">
+                <ion-icon name="search" [routerLink]="['/buscar-departamentos/', name]" style=color:yellow></ion-icon>
+            </ion-tab-button>
+            <ion-tab-button tab="tab3">
+                <ion-icon name="planet-outline" [routerLink]="['/mapa/']" style=color:yellow></ion-icon>
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs>
+</div>
+ -->
+
+<ion-item animated color="dark">
     <ion-grid>
         <div class="vertical-center">
             <ion-row>
                 <ion-col size="12">
                     <div>
                         <ion-footer>
-                            <ion-segment scrollable value="home" style=color:black>
-                                <ion-segment-button value="home" [routerLink]="['/home/', name]" style=color:black>
-                                    <ion-icon name="home-sharp"></ion-icon>
-                                    <ion-label>INICIO</ion-label>
+                            <ion-segment scrollable value="home" color="warning">
+                                <ion-segment-button>
+                                    <ion-icon name="home" [routerLink]="['/home/', name]" style=color:yellow></ion-icon>
+
                                 </ion-segment-button>
 
-                                <ion-segment-button value="home" [routerLink]="['/buscar-departamentos/', name]" style=color:black>
-                                    <ion-icon name="search-sharp"></ion-icon>
-                                    <ion-label>BUSCAR</ion-label>
+                                <ion-segment-button>
+                                    <ion-icon name="search" [routerLink]="['/buscar-departamentos/', name]" style=color:yellow></ion-icon>
                                 </ion-segment-button>
 
-                                <ion-segment-button value="home" style=color:black (click)="borrar()">
-                                    <ion-icon name="exit-sharp"></ion-icon>
-                                    <ion-label>SALIR</ion-label>
+                                <ion-segment-button>
+                                    <ion-icon name="planet-outline" [routerLink]="['/mapa/']" style=color:yellow></ion-icon>
                                 </ion-segment-button>
                             </ion-segment>
                         </ion-footer>

@@ -10,6 +10,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import {HttpClientModule} from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,8 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     StatusBar,
-    SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }
+    SplashScreen,DatePipe,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy,}
   ],
   bootstrap: [AppComponent]
 })

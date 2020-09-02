@@ -1,0 +1,63 @@
+ion-content {
+    --background: #ffc409;
+}
+
+.wave-container {
+    position: relative;
+    color: #FFF;
+    text-align: center;
+    overflow: hidden;
+    background: #091d23;
+    img {
+        margin-bottom: 2rem;
+        border-radius: 80px;
+    }
+}
+
+.wave-container>svg {
+    display: block;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 2rem auto;
+}
+
+ion-footer {
+    ion-toolbar {
+        --background: rgba(0, 0, 0, 0);
+        ion-title {
+            font-size: 12px;
+        }
+    }
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animated {
+    display: inline-block;
+    margin: 0 0.5rem;
+    animation: backInDown;
+    animation-duration: 2s;
+    /* don't forget to set a duration! */
+}
+
+.animated2 {
+    display: inline-block;
+    margin: 0 0.5rem;
+    animation: bounceInUp;
+    animation-duration: 2s;
+    /* don't forget to set a duration! */
+}
+
+.animated3 {
+    display: inline-block;
+    margin: 0 0.5rem;
+    animation: backInLeft;
+    animation-duration: 2s;
+    /* don't forget to set a duration! */
+}
