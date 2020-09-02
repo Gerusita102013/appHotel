@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 
 
 @NgModule({
@@ -20,7 +22,7 @@ import { DatePipe } from '@angular/common';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     StatusBar,
-    SplashScreen,DatePipe,
+    SplashScreen,DatePipe,Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy,}
   ],
   bootstrap: [AppComponent]

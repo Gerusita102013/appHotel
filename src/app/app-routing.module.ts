@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginGuard } from './guards/login.guard';
 
+
 const routes: Routes = [
   {
     path: 'home/:nick',
@@ -26,7 +27,7 @@ const routes: Routes = [
     loadChildren: () => import('./buscar-departamentos/buscar-departamentos.module').then( m => m.BuscarDepartamentosPageModule)
   },
   {
-    path: 'mapa',
+    path: 'mapa/:nick',
     loadChildren: () => import('./mapa/mapa.module').then( m => m.MapaPageModule)
   },
   {

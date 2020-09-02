@@ -32,7 +32,6 @@ export class DepartamentoService {
 
   buscarDepartamentos(nombrehabitacion: string){
     let url='http://127.0.0.1:8000/api/resultado/'+nombrehabitacion;
-    debugger
     return new Promise((resolve, reject)=>{
       this.http.get(url).subscribe(res=>{
         resolve(res);
@@ -56,9 +55,7 @@ export class DepartamentoService {
 
   addReservaciones(data:any){
     let url='http://127.0.0.1:8000/api/reservacion/';
-    debugger
     return new Promise((resolve, reject)=>{
-      debugger
       this.http.post(url,data).subscribe(res=>{
         resolve(res);
       },error=>{

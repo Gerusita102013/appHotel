@@ -1,24 +1,25 @@
-<ion-header class="oscuro">
-    <ion-toolbar class="oscuro">
-        <p>
-            <ion-title class="ion-text-center" style=" font: oblique bold 150% cursive; color:aliceblue;">Buscar Departamento</ion-title>
-            <ion-buttons slot="start">
-                <ion-back-button [defaultHref]="['home/', name]" style="color: aliceblue;"></ion-back-button>
-                <ion-searchbar [(ngModel)]="peli" animated color="warning" (keyup.enter)="getDepartamentos()"></ion-searchbar>
-            </ion-buttons>
-        </p>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button [defaultHref]="['home/', name]" animated color="danger"></ion-back-button>
+            <ion-searchbar [(ngModel)]="peli" animated color="medium-tint" (keyup.enter)="getDepartamentos()"></ion-searchbar>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
 
-<ion-content class="oscuro">
-    <ion-list class="oscuro">
+<ion-content fullscreen="true">
 
-        <ion-item class="oscuro" [routerLink]="['../../detail/', c.id, name]" *ngFor="let c of listMovies">
-            <ion-label animated color="light">
+    <svg class="back-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#8295A3"  d="M68.6,-33.5C81.6,-17.2,79.6,13.8,65.7,37.6C51.8,61.3,25.9,77.8,2.1,76.6C-21.7,75.4,-43.5,56.5,-54.2,34.6C-65,12.7,-64.8,-12.3,-53.9,-27.4C-43,-42.4,-21.5,-47.6,3.2,-49.4C27.9,-51.2,55.7,-49.7,68.6,-33.5Z" transform="translate(100 100)" />
+      </svg>
+
+    <ion-list>
+        <ion-item [routerLink]="['../../detail/', c.id, name]" *ngFor="let c of listMovies">
+            <ion-label animated color="danger">
                 {{c.nombrehabitacion}}
             </ion-label>
-            <ion-chip color="warning">$ &nbsp;{{c.precio}}</ion-chip>
+            <ion-chip color="danger">$ &nbsp;{{c.precio}}</ion-chip>
 
             <ion-thumbnail slot="start" *ngIf="c.imagen">
                 <img src="http://127.0.0.1:8000/Fotos/{{c.imagen}}">
@@ -28,9 +29,39 @@
         <div *ngIf="listMovies.length > 0 else noexiste"></div>
         <ng-template #noexiste>
             <ion-label class="vertical-center">
-                <h2 style=" color:aliceblue; ">---NO HAY DEPARTAMENTOS---</h2>
+                <h2 style=" color:rgb(0, 0, 0); ">........</h2>
             </ion-label>
         </ng-template>
     </ion-list>
-
 </ion-content>
+
+
+<ion-item>
+    <ion-grid>
+        <div>
+            <ion-row>
+                <ion-col size="12">
+                    <div>
+                        <ion-footer>
+                            <ion-segment scrollable value="home" color="danger">
+
+                                <ion-segment-button value="home" [routerLink]="['../../home/', name]">
+                                    <ion-icon name="home-sharp"></ion-icon>
+                                </ion-segment-button>
+
+                                <ion-segment-button value="home" [routerLink]="['/buscar-departamentos/', name]">
+                                    <ion-icon name="search-sharp"></ion-icon>
+                                </ion-segment-button>
+
+                                <ion-segment-button value="home" [routerLink]="['../../mapa/', name]">
+                                    <ion-icon name="planet-outline"></ion-icon>
+                                </ion-segment-button>
+
+                            </ion-segment>
+                        </ion-footer>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+</ion-item>

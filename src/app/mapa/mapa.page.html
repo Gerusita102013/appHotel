@@ -1,9 +1,44 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>mapa</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button [defaultHref]="['home/', name]" animated color="danger"></ion-back-button>
+        </ion-buttons>
+
+        <ion-title style=" font: oblique bold 150% cursive; color: black;">Mapa</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <div id="map"></div>
 </ion-content>
+
+
+<ion-item>
+    <ion-grid>
+        <div>
+            <ion-row>
+                <ion-col size="12">
+                    <div>
+                        <ion-footer>
+                            <ion-segment scrollable value="home" color="danger">
+
+                                <ion-segment-button value="home" [routerLink]="['../../home/', name]">
+                                    <ion-icon name="home-sharp"></ion-icon>
+                                </ion-segment-button>
+
+                                <ion-segment-button value="home" [routerLink]="['../../buscar-departamentos/', name]">
+                                    <ion-icon name="search-sharp"></ion-icon>
+                                </ion-segment-button>
+
+                                <ion-segment-button value="home" [routerLink]="['/mapa/', name]">
+                                    <ion-icon name="planet-outline"></ion-icon>
+                                </ion-segment-button>
+
+                            </ion-segment>
+                        </ion-footer>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+</ion-item>

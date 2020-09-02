@@ -29,19 +29,17 @@ export class BuscarDepartamentosPage implements OnInit {
 
   async mensaje() {
     const toast = await this.toast.create({
-      message:'DEPARTAMENTOS ENCONTRADOS',
+      message:'Departamentos Encontrados',
       duration: 2000,
       cssClass:'iontoast',
-      color: 'warning',
+      position:"top",
+      color: 'dark',
     });
     toast.present();
   }
 
   getDepartamentos(){
-    
       this.listMovies.length=0;
-    
-    debugger
     this.departamentoService.buscarDepartamentos(this.peli).then(correcto=>{
       for(let i=0; i<correcto["resultado"].length; i++){
         this.listMovies.push(correcto["resultado"][i]);

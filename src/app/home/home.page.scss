@@ -1,4 +1,5 @@
 ion-header {
+    background-color: #fdfeff;
     ion-toolbar {
         --background: rgba(201, 228, 50, 0);
     }
@@ -14,13 +15,15 @@ ion-header {
             }
         }
         h4 {
-            font-weight: 900;
+            //font-weight: 900;
+            text-align: center;
             font-size: 26px;
-            color: yellow;
+            color: rgb(212, 64, 64);
         }
         h6 {
+            text-align: center;
             font-weight: 600;
-            color: rgb(228, 228, 79);
+            color: rgb(230, 104, 81);
         }
     }
     img {
@@ -34,7 +37,14 @@ ion-tab-bar {
 }
 
 ion-content {
-    --background: #000000;
+    --background: rgba(237, 242, 245, .8);
+    .back-blob {
+        z-index: -1;
+        width: 600px;
+        position: absolute;
+        left: -50%;
+        top: 0;
+    }
     .container {
         margin-top: 38px;
         ion-card {
@@ -113,6 +123,30 @@ ion-content {
     text-align: center;
 }
 
-.oscuro {
-    --ion-background-color: #000000;
+ion-menu-button {
+    border-radius: 20px;
+}
+
+.animated {
+    display: inline-block;
+    margin: 0 0.5rem;
+    animation: backInDown;
+    animation-duration: 2s;
+    /* don't forget to set a duration! */
+}
+
+.animated2 {
+    display: inline-block;
+    margin: 0 0.5rem;
+    animation: bounceInUp;
+    animation-duration: 2s;
+    /* don't forget to set a duration! */
+}
+
+.animated3 {
+    display: inline-block;
+    margin: 0 0.5rem;
+    animation: backInLeft;
+    animation-duration: 2s;
+    /* don't forget to set a duration! */
 }

@@ -1,5 +1,5 @@
 ion-content {
-    --background: #ffc409;
+    --background: #979791;
 }
 
 .wave-container {
@@ -7,7 +7,7 @@ ion-content {
     color: #FFF;
     text-align: center;
     overflow: hidden;
-    background: #091d23;
+    background: #e5ecf1;
     img {
         margin-bottom: 2rem;
         border-radius: 80px;
@@ -60,4 +60,21 @@ ion-footer {
     animation: backInLeft;
     animation-duration: 2s;
     /* don't forget to set a duration! */
+}
+
+.centrado {
+    text-align: center;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+h1 {
+    color: black;
+}
+
+ion-button {
+    --border-color: black;
 }

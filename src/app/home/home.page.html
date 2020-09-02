@@ -1,28 +1,30 @@
-<ion-header class="oscuro">
-    <ion-toolbar class="oscuro">
+<ion-header>
+    <ion-toolbar>
         <ion-button slot="start" color="dark">
             <ion-menu-button menu="menu"></ion-menu-button>
         </ion-button>
-    </ion-toolbar>
 
-    <div class="titles">
-        <h4>La choza Lodge
-            <ion-icon name="home-sharp"></ion-icon>
-        </h4>
-        <h6>Share Your Love
-            <ion-icon name="bed-sharp"></ion-icon>
-        </h6>
-    </div>
+        <div class="titles">
+            <h4>La choza Lodge
+                <ion-icon name="home-sharp"></ion-icon>
+            </h4>
+        </div>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
+
+    <svg class="back-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#8295A3"  d="M68.6,-33.5C81.6,-17.2,79.6,13.8,65.7,37.6C51.8,61.3,25.9,77.8,2.1,76.6C-21.7,75.4,-43.5,56.5,-54.2,34.6C-65,12.7,-64.8,-12.3,-53.9,-27.4C-43,-42.4,-21.5,-47.6,3.2,-49.4C27.9,-51.2,55.7,-49.7,68.6,-33.5Z" transform="translate(100 100)" />
+      </svg>
+
     <div class="container" animated color="warning">
 
-        <h1 style=" font: oblique bold 150% cursive;color:aliceblue;" color="primary"> Disponibles</h1>
+        <h1 style=" font: oblique bold 150% cursive;color:rgb(0, 0, 0);" color="primary"> Disponibles</h1>
         <ion-slides [options]="option">
 
             <ion-slide class="ion-text-left" *ngFor="let c of habitaciones">
-                <ion-card class="ion-padding" color="warning">
+                <ion-card class="ion-padding" color="danger">
                     <ion-card-content>
                         <div class="cover">
                             <img class="poster" src="http://127.0.0.1:8000/Fotos/{{c.tipodehabitacion.imagen}}">
@@ -32,9 +34,10 @@
                                 <ion-card-title>{{c.tipodehabitacion.nombrehabitacion}}</ion-card-title>
                                 <ion-card-subtitle>$ {{c.tipodehabitacion.precio}}</ion-card-subtitle>
                             </ion-col>
+
                             <ion-col size="4" class="ion-text-left">
-                                <ion-button color="dark" mode="ios" [routerLink]="['../../detail/', c.id, name]">
-                                    <ion-icon slot="icon-only" name="add"></ion-icon>
+                                <ion-button fill="clear" color="dark" size="large" [routerLink]="['../../detail/', c.id, name]">
+                                    <ion-icon slot="icon-only" name="chevron-forward-circle-outline"></ion-icon>
                                 </ion-button>
                             </ion-col>
                         </ion-row>
@@ -44,7 +47,7 @@
         </ion-slides>
     </div>
 
-    <h1 style=" font: oblique bold 150% cursive;color:aliceblue;">Ocupadas</h1>
+    <h1 style=" font: oblique bold 150% cursive;color:rgb(0, 0, 0);">Ocupadas</h1>
     <div class="wrapper">
         <div *ngFor="let c of habitaciones2" style="padding: 5px;">
             <img src="http://127.0.0.1:8000/Fotos/{{c.tipodehabitacion.imagen}}" [routerLink]="['../../detail/', c.id, name]" width="100%" height="100%">
@@ -53,7 +56,41 @@
 </ion-content>
 
 
+<ion-item>
+    <ion-grid>
+        <div>
+            <ion-row>
+                <ion-col size="12">
+                    <div>
+                        <ion-footer>
+                            <ion-segment scrollable value="home" color="danger">
+
+                                <ion-segment-button value="home" [routerLink]="['/home/', name]">
+                                    <ion-icon name="home-sharp"></ion-icon>
+                                </ion-segment-button>
+
+                                <ion-segment-button value="home" [routerLink]="['/buscar-departamentos/', name]">
+                                    <ion-icon name="search-sharp"></ion-icon>
+                                </ion-segment-button>
+
+                                <ion-segment-button value="home" [routerLink]="['/mapa/', name]">
+                                    <ion-icon name="planet-outline"></ion-icon>
+                                </ion-segment-button>
+
+                            </ion-segment>
+                        </ion-footer>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+</ion-item>
+
+
+
+
 <!-- <div>
+    MENU CON TABS-REDONDEADO
     <ion-tabs>
         <ion-tab-bar slot="bottom" color="dark">
             <ion-tab-button tab="tab1">
@@ -69,32 +106,3 @@
     </ion-tabs>
 </div>
  -->
-
-<ion-item animated color="dark">
-    <ion-grid>
-        <div class="vertical-center">
-            <ion-row>
-                <ion-col size="12">
-                    <div>
-                        <ion-footer>
-                            <ion-segment scrollable value="home" color="warning">
-                                <ion-segment-button>
-                                    <ion-icon name="home" [routerLink]="['/home/', name]" style=color:yellow></ion-icon>
-
-                                </ion-segment-button>
-
-                                <ion-segment-button>
-                                    <ion-icon name="search" [routerLink]="['/buscar-departamentos/', name]" style=color:yellow></ion-icon>
-                                </ion-segment-button>
-
-                                <ion-segment-button>
-                                    <ion-icon name="planet-outline" [routerLink]="['/mapa/']" style=color:yellow></ion-icon>
-                                </ion-segment-button>
-                            </ion-segment>
-                        </ion-footer>
-                    </div>
-                </ion-col>
-            </ion-row>
-        </div>
-    </ion-grid>
-</ion-item>
