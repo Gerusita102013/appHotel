@@ -54,7 +54,9 @@ export class DepartamentoService {
 
 
   addReservaciones(data:any){
+    debugger
     let url='http://127.0.0.1:8000/api/reservacion/';
+    debugger
     return new Promise((resolve, reject)=>{
       this.http.post(url,data).subscribe(res=>{
         resolve(res);
@@ -63,4 +65,31 @@ export class DepartamentoService {
       })
     })
   }
+
+  getListaReservaciones(id:string){
+    debugger
+    let url='http://127.0.0.1:8000/api/prueba/'+ id;
+    debugger
+    return new Promise((resolve, reject)=>{
+      this.http.get(url).subscribe(res=>{
+        resolve(res);
+      },error=>{
+        reject(error); 
+      })
+    })
+  }
+
+  EliminarReservacion(data:any){
+    debugger
+    let url='http://127.0.0.1:8000/api/eliminar/';
+    debugger
+    return new Promise((resolve, reject)=>{
+      this.http.post(url, data).subscribe(res=>{
+        resolve(res);
+      },error=>{
+        reject(error); 
+      })
+    })
+  }
+
 }

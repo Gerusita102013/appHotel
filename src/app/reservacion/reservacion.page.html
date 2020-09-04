@@ -1,9 +1,62 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>reservacion</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button icon="chevron-back" defaultHref="['../home/', name]"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+    <div class="ion-padding">
 
+        <ion-card class="ion-margin-bottom">
+            <ion-card-content>
+
+
+            </ion-card-content>
+        </ion-card>
+
+        <ion-row style="border-bottom: groove;">
+            <ion-col col-3>
+                <ion-label>Imagen</ion-label>
+            </ion-col>
+            <ion-col col-1>
+                <ion-label>n°</ion-label>
+            </ion-col>
+            <ion-col col-2>
+                <ion-label>Precio</ion-label>
+            </ion-col>
+            <ion-col col-2>
+                <ion-label>Ingreso</ion-label>
+            </ion-col>
+            <ion-col col-2>
+                <ion-label>Salida</ion-label>
+            </ion-col>
+            <ion-col col-2>
+                <ion-label>Eliminar</ion-label>
+            </ion-col>
+        </ion-row>
+
+        <ion-row style="border-bottom: groove;" *ngFor="let c of lista">
+            <ion-col col-3>
+                <img src="http://127.0.0.1:8000/Fotos/{{c.habitaciones.tipodehabitacion.imagen}}">
+            </ion-col>
+            <ion-col col-1>
+                <ion-label>{{c.habitaciones.numero}}</ion-label>
+            </ion-col>
+            <ion-col col-2>
+                <ion-label>{{c.habitaciones.tipodehabitacion.precio}}</ion-label>
+            </ion-col>
+            <ion-col col-2>
+                <ion-label>{{c.fecha_entrada}}</ion-label>
+            </ion-col>
+            <ion-col col-2>
+                <ion-label>{{c.fecha_salida}}</ion-label>
+            </ion-col>
+            <ion-col col-2>
+                <ion-button color="danger" (click)="eliminarR()">E</ion-button>
+            </ion-col>
+        </ion-row>
+
+    </div>
 </ion-content>

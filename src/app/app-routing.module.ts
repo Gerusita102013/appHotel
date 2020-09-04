@@ -31,7 +31,7 @@ const routes: Routes = [
     loadChildren: () => import('./mapa/mapa.module').then( m => m.MapaPageModule)
   },
   {
-    path: 'reservacion',
+    path: 'reservacion/:nick',
     loadChildren: () => import('./reservacion/reservacion.module').then( m => m.ReservacionPageModule)
   },
   {

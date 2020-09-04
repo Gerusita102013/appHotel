@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
   user:any[];
   mail:string;
   pass:string;
-  
+  id:string;
 
   ngOnInit() {
   }
@@ -38,7 +38,14 @@ export class LoginPage implements OnInit {
       this.user=data['register'];
       this.mail=null;
       this.pass=null;
+
+      for (let i = 0; i < this.user.length; i++) {
+        this.id = data["register"][i].id;
+      }
+      console.log(this.id);
+        localStorage.setItem('idUser', this.id)
         localStorage.setItem('sesionlogin','true')
+
         this.ruta.navigate(['/inicio/'+this.user[0].name])
       
     })

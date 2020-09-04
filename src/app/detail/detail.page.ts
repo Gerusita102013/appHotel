@@ -65,21 +65,17 @@ verReserv(){
   })
 
   Reservar(){
-    debugger
     console.log(this.datePipe.transform(this.fecha_entrada, "yyyy-MM-dd"));
-    
-
-    
     let datos={
       'fecha_entrada':this.datePipe.transform(this.fecha_entrada, "yyyy-MM-dd"),
       'fecha_salida':this.datePipe.transform(this.fecha_salida, "yyyy-MM-dd"),
-      'habitacion_id':this.id
+      'habitacion_id':this.id,
+      'users_id':localStorage.getItem('idUser')
     }
-
+    debugger
     this.departamentoService.addReservaciones(datos).then(data =>{
       debugger
       console.log(data);
-      debugger
     }).catch(error=>{
     })
   }

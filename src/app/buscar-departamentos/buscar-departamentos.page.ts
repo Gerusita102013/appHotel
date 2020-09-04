@@ -41,6 +41,8 @@ export class BuscarDepartamentosPage implements OnInit {
   getDepartamentos(){
       this.listMovies.length=0;
     this.departamentoService.buscarDepartamentos(this.peli).then(correcto=>{
+      console.log(correcto);
+
       for(let i=0; i<correcto["resultado"].length; i++){
         this.listMovies.push(correcto["resultado"][i]);
         this.mensaje();
