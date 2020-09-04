@@ -30,16 +30,15 @@ export class ReservacionPage implements OnInit {
     })
   }
 
-  eliminarR(){
+  eliminarR(id:string){
     debugger
-    console.log('pajarita');
-    /* this.departamentoService.EliminarReservacion(id).then(data=>{
+    this.departamentoService.getEliminarReservacion(id).then(data=>{
       debugger
-      this.lista=this.obtenerListaR();
+      this.obtenerListaR();
       console.log(this.lista);
       //this.listaTipodeHabitaciones=data[3];
-      //console.log( this.listaTipodeHabitaciones); */
- /*  }) */
+      console.log( this.listaTipodeHabitaciones);
+   }) 
 }
-  
 }
+

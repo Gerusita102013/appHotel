@@ -1,60 +1,60 @@
-<ion-header class="ion-no-border">
+<ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button icon="chevron-back" defaultHref="['../home/', name]"></ion-back-button>
+            <ion-back-button defaultHref="['../home/', name]" animated color="danger"></ion-back-button>
         </ion-buttons>
+        <div class="titles" style="font: oblique bold 150% cursive;">
+            <h4>Reservaciones
+                <ion-icon name="business-outline"></ion-icon>
+            </h4>
+        </div>
     </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content fullscreen="true">
+
+    <svg class="back-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#8295A3"  d="M68.6,-33.5C81.6,-17.2,79.6,13.8,65.7,37.6C51.8,61.3,25.9,77.8,2.1,76.6C-21.7,75.4,-43.5,56.5,-54.2,34.6C-65,12.7,-64.8,-12.3,-53.9,-27.4C-43,-42.4,-21.5,-47.6,3.2,-49.4C27.9,-51.2,55.7,-49.7,68.6,-33.5Z" transform="translate(100 100)" />
+    </svg>
+
+
     <div class="ion-padding">
-
-        <ion-card class="ion-margin-bottom">
-            <ion-card-content>
-
-
-            </ion-card-content>
-        </ion-card>
-
-        <ion-row style="border-bottom: groove;">
-            <ion-col col-3>
+        <ion-row style="border-bottom: groove;" class="centrado">
+            <ion-col col-2>
                 <ion-label>Imagen</ion-label>
             </ion-col>
             <ion-col col-1>
                 <ion-label>n°</ion-label>
             </ion-col>
-            <ion-col col-2>
-                <ion-label>Precio</ion-label>
+            <ion-col col-4>
+                <ion-label>In</ion-label>
             </ion-col>
-            <ion-col col-2>
-                <ion-label>Ingreso</ion-label>
+            <ion-col col-4>
+                <ion-label>Out</ion-label>
             </ion-col>
-            <ion-col col-2>
-                <ion-label>Salida</ion-label>
-            </ion-col>
-            <ion-col col-2>
-                <ion-label>Eliminar</ion-label>
+            <ion-col col-1>
+                <ion-label></ion-label>
             </ion-col>
         </ion-row>
 
-        <ion-row style="border-bottom: groove;" *ngFor="let c of lista">
-            <ion-col col-3>
+        <ion-row style="border-bottom: groove;" *ngFor="let c of lista" class="centrado">
+            <ion-col col-2>
                 <img src="http://127.0.0.1:8000/Fotos/{{c.habitaciones.tipodehabitacion.imagen}}">
             </ion-col>
             <ion-col col-1>
                 <ion-label>{{c.habitaciones.numero}}</ion-label>
             </ion-col>
-            <ion-col col-2>
-                <ion-label>{{c.habitaciones.tipodehabitacion.precio}}</ion-label>
-            </ion-col>
-            <ion-col col-2>
+            <ion-col col-4>
                 <ion-label>{{c.fecha_entrada}}</ion-label>
             </ion-col>
-            <ion-col col-2>
+            <ion-col col-4>
                 <ion-label>{{c.fecha_salida}}</ion-label>
             </ion-col>
-            <ion-col col-2>
-                <ion-button color="danger" (click)="eliminarR()">E</ion-button>
+            <ion-col col-1>
+                <ion-button color="danger" (click)="eliminarR(c.id)">
+                    <ion-icon name="trash" color="dark"></ion-icon>
+                </ion-button>
+
             </ion-col>
         </ion-row>
 

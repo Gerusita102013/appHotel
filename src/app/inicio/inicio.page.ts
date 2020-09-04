@@ -13,7 +13,6 @@ export class InicioPage implements OnInit {
 
   ngOnInit() {
     this.name= this.rute.snapshot.paramMap.get('nick');
-    
   }
 
 }

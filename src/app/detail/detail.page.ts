@@ -6,6 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DatePipe } from "@angular/common";
 
 
+
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.page.html',
@@ -72,11 +73,9 @@ verReserv(){
       'habitacion_id':this.id,
       'users_id':localStorage.getItem('idUser')
     }
-    debugger
     this.departamentoService.addReservaciones(datos).then(data =>{
-      debugger
-      console.log(data);
+    
     }).catch(error=>{
     })
-  }
+    this.router2.navigate(['/home/:nick']);}
 }
