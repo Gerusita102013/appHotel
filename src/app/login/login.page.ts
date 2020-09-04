@@ -3,6 +3,7 @@ import { LoginService } from 'src/app/service/login.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -22,7 +23,18 @@ export class LoginPage implements OnInit {
   async mensaje(msj:string) {
     const toast = await this.toast.create({
       message: msj,
+      color: 'danger',
       duration: 2000
+    });
+    toast.present();
+  }
+
+  async mensajecorrecto(msj:string) {
+    const toast = await this.toast.create({
+      message: msj,
+      color: 'warning',
+
+      duration: 2000,
     });
     toast.present();
   }
@@ -35,6 +47,7 @@ export class LoginPage implements OnInit {
     }
     
     this.login.logeo(this.mail,this.pass).then(data =>{
+      
       this.user=data['register'];
       this.mail=null;
       this.pass=null;
@@ -47,7 +60,7 @@ export class LoginPage implements OnInit {
         localStorage.setItem('sesionlogin','true')
 
         this.ruta.navigate(['/inicio/'+this.user[0].name])
-      
+        this.mensajecorrecto('Welcome');
     })
     .catch(error =>{
       console.log(error);

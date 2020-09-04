@@ -22,16 +22,23 @@ export class HomePage {
     private rute:ActivatedRoute, ) {}
 
   ngOnInit(){
+    
     this.obtenerDesocupados();
     this.obtenerOcupados();
- 
     this.name= this.rute.snapshot.paramMap.get('nick');
+    //this.habitaciones.length=0;
   }
+
+/*   ionViewWillEnter() {
+    this.obtenerDesocupados();
+    this.obtenerOcupados();
+} */
   
   obtenerDesocupados(){
     this.departamentoService.getDepartamentos('desocupado').then(data=>{
       this.habitaciones=data["habita"];
       console.log(this.habitaciones);
+      
   })
 }
 

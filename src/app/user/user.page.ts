@@ -23,7 +23,9 @@ export class UserPage implements OnInit {
   async mensaje(msj:string) {
     const toast = await this.toast.create({
       message: msj,
-      duration: 2000
+      duration: 2000,
+      color: 'danger'
+
     });
     toast.present();
   }

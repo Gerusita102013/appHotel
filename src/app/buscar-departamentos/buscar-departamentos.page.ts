@@ -33,7 +33,7 @@ export class BuscarDepartamentosPage implements OnInit {
       duration: 2000,
       cssClass:'iontoast',
       position:"top",
-      color: 'dark',
+      color: 'success',
     });
     toast.present();
   }

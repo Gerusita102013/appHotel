@@ -31,9 +31,7 @@ export class ReservacionPage implements OnInit {
   }
 
   eliminarR(id:string){
-    debugger
     this.departamentoService.getEliminarReservacion(id).then(data=>{
-      debugger
       this.obtenerListaR();
       console.log(this.lista);
       //this.listaTipodeHabitaciones=data[3];

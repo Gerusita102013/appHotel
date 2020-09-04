@@ -34,12 +34,21 @@ export class DetailPage implements OnInit {
     private router:ActivatedRoute,
     private router2 :Router,
     private rute:ActivatedRoute,
-    private datePipe: DatePipe) { }
+    private datePipe: DatePipe,
+    private toast:ToastController) { }
 
   ngOnInit() {
     this.id=this.router.snapshot.paramMap.get('id');
     this.getDetailDepartamento();
     this.name= this.rute.snapshot.paramMap.get('nick');
+  }
+
+  async mensaje(msj:string) {
+    const toast = await this.toast.create({
+      message: msj,
+      duration: 2000
+    });
+    toast.present();
   }
 
   getDetailDepartamento(){
